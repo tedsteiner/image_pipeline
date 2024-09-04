@@ -40,7 +40,6 @@
 #include <image_proc/track_marker.hpp>
 #include <image_proc/utils.hpp>
 #include <image_transport/image_transport.hpp>
-#include <opencv2/core/quaternion.hpp>
 #include <rclcpp/qos.hpp>
 #include <rclcpp/rclcpp.hpp>
 
