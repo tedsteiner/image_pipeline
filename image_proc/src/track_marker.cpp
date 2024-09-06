@@ -40,9 +40,10 @@
 #include <image_proc/track_marker.hpp>
 #include <image_proc/utils.hpp>
 #include <image_transport/image_transport.hpp>
-#include <opencv2/core/quaternion.hpp>
 #include <rclcpp/qos.hpp>
 #include <rclcpp/rclcpp.hpp>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <tf2/LinearMath/Quaternion.h>
 
 namespace image_proc
 {
@@ -135,11 +136,9 @@ void TrackMarkerNode::imageCb(
       pose.pose.position.y = tvecs[0][1];
       pose.pose.position.z = tvecs[0][2];
       // Convert angle-axis to quaternion
-      cv::Quatd q = cv::Quatd::createFromRvec(rvecs[0]);
-      pose.pose.orientation.x = q.x;
-      pose.pose.orientation.y = q.y;
-      pose.pose.orientation.z = q.z;
-      pose.pose.orientation.w = q.w;
+      const tf2::Vector3 rvec(rvecs[0][0], rvecs[0][1], rvecs[0][2]);
+      const tf2::Quaternion q(rvec.normalized(), rvec.length());
+      tf2::convert(q, pose.pose.orientation);
       pub_->publish(pose);
     }
   }
