@@ -30,13 +30,14 @@
 // ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+#include <tf2/LinearMath/Quaternion.h>
+
 #include <cstddef>
 #include <functional>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include <tf2/LinearMath/Quaternion.h>
 #include <cv_bridge/cv_bridge.hpp>
 #include <image_proc/track_marker.hpp>
 #include <image_proc/utils.hpp>
