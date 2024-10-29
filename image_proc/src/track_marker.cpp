@@ -36,6 +36,7 @@
 #include <string>
 #include <vector>
 
+#include <tf2/LinearMath/Quaternion.h>
 #include <cv_bridge/cv_bridge.hpp>
 #include <image_proc/track_marker.hpp>
 #include <image_proc/utils.hpp>
@@ -43,7 +44,6 @@
 #include <rclcpp/qos.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
-#include <tf2/LinearMath/Quaternion.h>
 
 namespace image_proc
 {
